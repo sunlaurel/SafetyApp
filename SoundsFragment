@@ -10,9 +10,9 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class SoundFragment extends Fragment {
+public class SoundsFragment extends Fragment {
 
-    public SoundFragment()
+    public SoundsFragment()
     {
         //Required empty public constructor
     }
@@ -25,7 +25,7 @@ public class SoundFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.soundfragment_layout, container, false);
+        View rootView = inflater.inflate(R.layout.soundsfragment_layout, container, false);
 
         Button Dogs = (Button) rootView.findViewById(R.id.dogButton);
 
