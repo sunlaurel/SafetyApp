@@ -24,8 +24,6 @@ public class CallFragment extends Fragment {
         binding = FragmentCallBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textCall;
-        callViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

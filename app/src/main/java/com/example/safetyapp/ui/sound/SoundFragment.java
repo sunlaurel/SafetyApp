@@ -24,8 +24,6 @@ public class SoundFragment extends Fragment {
         binding = FragmentSoundBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSound;
-        soundViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
