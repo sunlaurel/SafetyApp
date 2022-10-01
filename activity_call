@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CallActivity">
+
+    <Button
+        android:id="@+id/girlButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="108dp"
+        android:text="Girl Version"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/guyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:text="Guy Version"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="@+id/girlButton"
+        app:layout_constraintStart_toStartOf="@+id/girlButton"
+        app:layout_constraintTop_toBottomOf="@+id/girlButton" />
+
+    <TextView
+        android:id="@+id/callTV"
+        android:layout_width="275dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="90dp"
+        android:text="During the pauses in the call, try to reply (in a few words) to make the conversation flow better. Don't ask questions back."
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/guyButton"
+        app:layout_constraintStart_toStartOf="@+id/guyButton"
+        app:layout_constraintTop_toBottomOf="@+id/guyButton" />
+
+    <Button
+        android:id="@+id/callReturnBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Return to Sound List"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="@+id/callTV"
+        app:layout_constraintStart_toStartOf="@+id/callTV"
+        app:layout_constraintTop_toBottomOf="@+id/callTV" />
+</androidx.constraintlayout.widget.ConstraintLayout>
