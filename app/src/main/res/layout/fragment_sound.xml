@@ -3,7 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.sound.SoundFragment">
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/dogButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="80dp"
+        android:text="Dogs Barking"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="buttonClick" />
+
+    <Button
+        android:id="@+id/laughterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:text="Creepy Laughter"
+        app:layout_constraintStart_toStartOf="@+id/dogButton"
+        app:layout_constraintTop_toBottomOf="@+id/dogButton" />
+
+    <Button
+        android:id="@+id/callButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:text="Fake Call"
+        app:layout_constraintStart_toStartOf="@+id/laughterButton"
+        app:layout_constraintTop_toBottomOf="@+id/laughterButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

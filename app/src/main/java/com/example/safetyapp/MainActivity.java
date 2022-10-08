@@ -3,9 +3,10 @@ package com.example.safetyapp;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.safetyapp.databinding.ActivityMainBinding;
 import com.example.safetyapp.ui.call.CallFragment;
 import com.example.safetyapp.ui.map.MapFragment;
-import com.example.safetyapp.ui.sound.SoundFragment;
+import com.example.safetyapp.ui.sounds.SoundsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -16,9 +17,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.safetyapp.databinding.ActivityMainBinding;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private ActivityMainBinding binding;
 
@@ -45,8 +44,9 @@ public class MainActivity extends AppCompatActivity {
 
     MapFragment mapFragment = new MapFragment();
     CallFragment callFragment = new CallFragment();
-    SoundFragment soundFragment = new SoundFragment();
+    SoundsFragment soundFragment = new SoundsFragment();
 
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()) {

@@ -1,0 +1,55 @@
+package com.example.safetyapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import com.example.safetyapp.ui.sounds.SoundsFragment;
+
+public class CallActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_call);
+
+
+        Button startGirl = (Button) findViewById(R.id.girlButton);
+        Button startGuy = (Button) findViewById(R.id.guyButton);
+        Button returnCall = (Button) findViewById(R.id.callReturnBtn);
+
+        startGirl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(CallActivity.this, FullscreenCallGirl.class);
+                startActivity(in);
+            }
+        });
+
+        startGuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(CallActivity.this, FullscreenCallGuy.class);
+                startActivity(in);
+            }
+        });
+
+        returnCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSounds();
+            }
+        });
+    }
+
+    public void openSounds()
+    {
+        Intent intent = new Intent(CallActivity.this, SoundsFragment.class);
+        startActivity(intent);
+    }
+
+
+}

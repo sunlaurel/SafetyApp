@@ -1,0 +1,69 @@
+package com.example.safetyapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import com.example.safetyapp.ui.sounds.SoundsFragment;
+
+public class LaughActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_laugh);
+
+        final MediaPlayer manLaughMP = MediaPlayer.create(this, R.raw.man_laugh);
+        final MediaPlayer womanLaughMP = MediaPlayer.create(this, R.raw.woman_laugh);
+
+        Button manLaughStart = (Button) findViewById(R.id.manLaughStartBtn);
+        Button womanLaughStart = (Button) findViewById(R.id.womanLaughStartBtn);
+        Button manLaughEnd = (Button) findViewById(R.id.manLaughEndBtn);
+        Button womanLaughEnd = (Button) findViewById(R.id.womanLaughEndBtn);
+        Button returnLaugh = (Button) findViewById(R.id.laughReturnBtn);
+
+        manLaughStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                manLaughMP.start();
+            }
+        });
+
+        manLaughEnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                manLaughMP.stop();
+            }
+        });
+
+        womanLaughStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                womanLaughMP.start();
+            }
+        });
+
+        womanLaughEnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                womanLaughMP.stop();
+            }
+        });
+
+        returnLaugh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSounds();
+            }
+        });
+    }
+    public void openSounds ()
+    {
+        Intent intent = new Intent(this, SoundsFragment.class);
+        startActivity(intent);
+    }
+}

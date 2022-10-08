@@ -18,8 +18,6 @@ public class CallFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        CallViewModel callViewModel =
-                new ViewModelProvider(this).get(CallViewModel.class);
 
         binding = FragmentCallBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
