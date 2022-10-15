@@ -4,51 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CallActivity">
+    tools:context=".CallActivity"
+    android:background="#141F45">
 
-    <Button
-        android:id="@+id/girlButton"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tvFakeCall"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="108dp"
-        android:text="Girl Version"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="Fake Call"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="60dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <Button
-        android:id="@+id/guyButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
-        android:text="Guy Version"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="@+id/girlButton"
-        app:layout_constraintStart_toStartOf="@+id/girlButton"
-        app:layout_constraintTop_toBottomOf="@+id/girlButton" />
 
     <TextView
         android:id="@+id/callTV"
         android:layout_width="275dp"
         android:layout_height="87dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="0dp"
+        android:padding="20dp"
+        android:gravity="center_horizontal"
         android:text="During the pauses in the call, try to reply (in a few words) to make the conversation flow better. Don't ask questions back."
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/guyButton"
-        app:layout_constraintStart_toStartOf="@+id/guyButton"
-        app:layout_constraintTop_toBottomOf="@+id/guyButton" />
+        android:textColor="#95CDCBCB"
+        android:layout_marginStart="50dp"
+        app:layout_constraintStart_toStartOf="@+id/tvFakeCall"
+        app:layout_constraintTop_toBottomOf="@+id/tvFakeCall"
+        tools:layout_editor_absoluteX="68dp" />
+
+    <Button
+        android:id="@+id/girlButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
+        android:padding="30dp"
+        android:text="Girl call"
+        android:textSize="30dp"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@id/tvFakeCall"
+        app:layout_constraintTop_toBottomOf="@+id/callTV" />
+
+    <Button
+        android:id="@+id/guyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:padding="30dp"
+        android:text="guy call"
+        android:textSize="30dp"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@+id/girlButton"
+        app:layout_constraintTop_toBottomOf="@+id/girlButton" />
 
     <Button
         android:id="@+id/callReturnBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginBottom="30dp"
         android:text="Return to Sound List"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintEnd_toEndOf="@+id/callTV"
-        app:layout_constraintStart_toStartOf="@+id/callTV"
-        app:layout_constraintTop_toBottomOf="@+id/callTV" />
+        android:textAllCaps="true"
+        android:textSize="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/girlButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

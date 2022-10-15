@@ -3,34 +3,57 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#141F45">
+
+    <TextView
+        android:id="@+id/tvSound"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sounds"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textAllCaps="true"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="80dp"
+        android:padding="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/dogButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="80dp"
+        android:padding="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:text="Dogs Barking"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="@+id/tvSound"
+        app:layout_constraintTop_toBottomOf="@+id/tvSound"
         android:onClick="buttonClick" />
 
     <Button
         android:id="@+id/laughterButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
+        android:padding="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:text="Creepy Laughter"
+        android:textSize="27dp"
         app:layout_constraintStart_toStartOf="@+id/dogButton"
         app:layout_constraintTop_toBottomOf="@+id/dogButton" />
 
     <Button
         android:id="@+id/callButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
+        android:padding="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:text="Fake Call"
+        android:textSize="30dp"
         app:layout_constraintStart_toStartOf="@+id/laughterButton"
         app:layout_constraintTop_toBottomOf="@+id/laughterButton" />
 

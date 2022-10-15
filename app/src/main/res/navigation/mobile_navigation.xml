@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_map"
-        android:name="com.example.safetyapp.ui.map.MapFragment"
+        android:name="com.example.safetyapp.MapFragment"
         android:label="Map"
         tools:layout="@layout/fragment_map" />
 
     <fragment
         android:id="@+id/navigation_sound"
-        android:name="com.example.safetyapp.ui.sounds.SoundsFragment"
+        android:name="com.example.safetyapp.SoundsFragment"
         android:label="Sound"
         tools:layout="@layout/fragment_sound" />
 
     <fragment
         android:id="@+id/navigation_call"
-        android:name="com.example.safetyapp.ui.call.CallFragment"
+        android:name="com.example.safetyapp.CallFragment"
         android:label="Call"
         tools:layout="@layout/fragment_call" />
 </navigation>

@@ -1,25 +1,20 @@
 package com.example.safetyapp;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.safetyapp.databinding.ActivityMainBinding;
-import com.example.safetyapp.ui.call.CallFragment;
-import com.example.safetyapp.ui.map.MapFragment;
-import com.example.safetyapp.ui.sounds.SoundsFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+import androidx.fragment.app.Fragment;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+
+public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    MeowBottomNavigation bottomNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,41 +23,40 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+        bottomNavigation = findViewById(R.id.nav_view);
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_map, R.id.navigation_sound, R.id.navigation_call)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(binding.navView, navController);
+        bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_baseline_map_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_baseline_speaker_phone_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_baseline_call_24));
+
+        bottomNavigation.show(1, true);
+        loadFragment(new MapFragment());
+
+        bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
+            @Override
+            public Unit invoke(MeowBottomNavigation.Model model) {
+                switch (model.getId()) {
+                    case 1:
+                        loadFragment(new MapFragment());
+                        break;
+                    case 2:
+                        loadFragment(new SoundsFragment());
+                        break;
+                    case 3:
+                        loadFragment(new CallFragment());
+                        break;
+                }
+
+                return null;
+            }
+        });
     }
 
-    MapFragment mapFragment = new MapFragment();
-    CallFragment callFragment = new CallFragment();
-    SoundsFragment soundFragment = new SoundsFragment();
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-        switch (item.getItemId()) {
-            case R.id.navigation_map:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, mapFragment).commit();
-                return true;
-
-            case R.id.navigation_sound:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, soundFragment).commit();
-                return true;
-
-            case R.id.navigation_call:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, callFragment).commit();
-                return true;
-        }
-        return false;
+    private void loadFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frame, fragment)
+                .commit();
     }
 
 }

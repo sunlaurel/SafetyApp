@@ -18,7 +18,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 
 import com.example.safetyapp.FetchData.FetchDataNearby;
-import com.example.safetyapp.ui.map.MapFragment;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;

@@ -1,5 +1,6 @@
 package com.example.safetyapp;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -8,8 +9,7 @@ import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.safetyapp.ui.sounds.SoundsFragment;
+import androidx.fragment.app.FragmentTransaction;
 
 public class DogActivity extends AppCompatActivity {
 
@@ -46,7 +46,7 @@ public class DogActivity extends AppCompatActivity {
 
     public void openSounds()
     {
-        Intent intent = new Intent(this, SoundsFragment.class);
+        Intent intent = new Intent (DogActivity.this, SoundsFragment.class);
         startActivity(intent);
     }
 }

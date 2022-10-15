@@ -3,7 +3,7 @@ package com.example.safetyapp.FetchData;
 import android.os.AsyncTask;
 
 import com.example.safetyapp.LocationService;
-import com.example.safetyapp.ui.map.MapFragment;
+import com.example.safetyapp.MapFragment;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;

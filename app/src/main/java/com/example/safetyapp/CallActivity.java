@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.safetyapp.ui.sounds.SoundsFragment;
-
 public class CallActivity extends AppCompatActivity {
 
     @Override

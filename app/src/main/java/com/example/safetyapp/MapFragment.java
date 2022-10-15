@@ -1,4 +1,4 @@
-package com.example.safetyapp.ui.map;
+package com.example.safetyapp;
 
 import android.Manifest;
 import android.content.pm.PackageManager;

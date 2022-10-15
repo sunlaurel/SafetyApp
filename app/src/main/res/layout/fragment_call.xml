@@ -4,6 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.call.CallFragment" >
-    
+    tools:context=".CallFragment" >
+
+    <TextView
+        android:id="@+id/tvCall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Call"
+        android:textSize="100dp"
+        android:textColor="#535050"
+        android:gravity="center_horizontal"
+        android:fontFamily="sans-serif-medium"
+        android:padding="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/callIcon"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_baseline_phone_in_talk_24"
+        android:gravity="center_horizontal"
+        app:layout_constraintStart_toStartOf="@id/tvCall"
+        app:layout_constraintTop_toBottomOf="@id/tvCall" />
+
+    <TextView
+        android:id="@+id/tvEmergency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="911"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/callIcon"
+        android:gravity="center"
+        android:textSize="40dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please be safe and call 911 whenever necessary"
+        android:textSize="20dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tvEmergency"
+        android:layout_marginTop="20dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

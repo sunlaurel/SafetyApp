@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.example.safetyapp.FetchData.FetchDirections;
 import com.example.safetyapp.FetchData.FetchPlaceDetail;
-import com.example.safetyapp.ui.map.MapFragment;
 import com.google.android.gms.maps.model.Marker;
 
 public class PopUpWindow extends Activity {
