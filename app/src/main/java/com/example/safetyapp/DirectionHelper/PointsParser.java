@@ -18,8 +18,8 @@ import java.util.Objects;
 public class PointsParser extends AsyncTask<String, Integer, List<List<HashMap<String, String>>>> {
     TaskLoadedCallback taskCallback;
 
-    public PointsParser(Context mContext) {
-        this.taskCallback = (TaskLoadedCallback) mContext;
+    public PointsParser(TaskLoadedCallback callback) {
+        this.taskCallback = callback;
     }
 
     // Parsing the data in non-ui thread

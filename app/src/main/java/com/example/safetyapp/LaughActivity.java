@@ -7,8 +7,16 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class LaughActivity extends AppCompatActivity {
+
+    Button manLaughStart;
+    Button womanLaughStart;
+    Button manLaughEnd;
+    Button womanLaughEnd;
+    Button returnLaugh;
+    TextView note;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,11 +26,12 @@ public class LaughActivity extends AppCompatActivity {
         final MediaPlayer manLaughMP = MediaPlayer.create(this, R.raw.man_laugh);
         final MediaPlayer womanLaughMP = MediaPlayer.create(this, R.raw.woman_laugh);
 
-        Button manLaughStart = (Button) findViewById(R.id.manLaughStartBtn);
-        Button womanLaughStart = (Button) findViewById(R.id.womanLaughStartBtn);
-        Button manLaughEnd = (Button) findViewById(R.id.manLaughEndBtn);
-        Button womanLaughEnd = (Button) findViewById(R.id.womanLaughEndBtn);
-        Button returnLaugh = (Button) findViewById(R.id.laughReturnBtn);
+        manLaughStart = (Button) findViewById(R.id.manLaughStartBtn);
+        womanLaughStart = (Button) findViewById(R.id.womanLaughStartBtn);
+        manLaughEnd = (Button) findViewById(R.id.manLaughEndBtn);
+        womanLaughEnd = (Button) findViewById(R.id.womanLaughEndBtn);
+        returnLaugh = (Button) findViewById(R.id.laughReturnBtn);
+        note = (TextView) findViewById(R.id.tvFakeLaughterNote);
 
         manLaughStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +70,12 @@ public class LaughActivity extends AppCompatActivity {
     }
     public void openSounds ()
     {
-        Intent intent = new Intent(this, SoundsFragment.class);
-        startActivity(intent);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new SoundsFragment()).commit();
+        manLaughStart.setVisibility(View.GONE);
+        womanLaughStart.setVisibility(View.GONE);
+        manLaughEnd.setVisibility(View.GONE);
+        womanLaughEnd.setVisibility(View.GONE);
+        returnLaugh.setVisibility(View.GONE);
+        note.setVisibility(View.GONE);
     }
 }

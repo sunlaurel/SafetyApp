@@ -16,39 +16,22 @@ import com.google.android.gms.maps.model.Marker;
 
 public class PopUpWindow extends Activity {
 
+    static TextView tvInfo;
     static TextView tvName;
-    static TextView tvOpenHour;
-    static TextView tvAddress;
-    static TextView tvPhone;
     Button startDirection;
     Marker m;
     Context context;
 
-    public static TextView getTvName() {
-        return tvName;
-    }
-
-    public static TextView getTvOpenHour() {
-        return tvOpenHour;
-    }
-
-    public static TextView getTvAddress() {
-        return tvAddress;
-    }
-
-    public static TextView getTvPhone() {
-        return tvPhone;
-    }
+    public static TextView getTvInfo() { return tvInfo; }
+    public static TextView getTvName() { return tvName; }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pop_up_window);
 
+        tvInfo = (TextView) findViewById(R.id.tvInfo);
         tvName = (TextView) findViewById(R.id.tvName);
-        tvOpenHour = (TextView) findViewById(R.id.tvOpenHour);
-        tvAddress = (TextView) findViewById(R.id.tvAddress);
-        tvPhone = (TextView) findViewById(R.id.tvPhone);
         startDirection = (Button) findViewById(R.id.btStartDirection);
         m = MapFragment.getClicked();
 
@@ -58,9 +41,7 @@ public class PopUpWindow extends Activity {
                 //draw the polyline and zoom out
                 //Or zoom in and start directions
                 String[] d = {getDirectionsUrl()};
-                System.out.println("Directions url: " + d[0]);
-                FetchDirections fetchDirection = new FetchDirections(MapFragment.getFragmentContext());
-                System.out.println("starting directions");
+                FetchDirections fetchDirection = new FetchDirections(MainActivity.getMapFragment());
                 fetchDirection.execute(d);
 
                 finish();

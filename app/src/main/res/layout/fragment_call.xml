@@ -20,12 +20,13 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
-        android:id="@+id/callIcon"
+        android:id="@+id/callBtn"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginStart="104dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/ic_baseline_phone_in_talk_24"
+
         android:gravity="center_horizontal"
         app:layout_constraintStart_toStartOf="@id/tvCall"
         app:layout_constraintTop_toBottomOf="@id/tvCall" />
@@ -36,7 +37,7 @@
         android:layout_height="wrap_content"
         android:text="911"
         android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@id/callIcon"
+        app:layout_constraintTop_toBottomOf="@id/callBtn"
         android:gravity="center"
         android:textSize="40dp"/>
 

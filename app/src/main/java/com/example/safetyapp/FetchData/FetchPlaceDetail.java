@@ -14,7 +14,6 @@ public class FetchPlaceDetail extends AsyncTask<Object, String, String> {
 
     String googlePlaceDetails;
     String url;
-    String name;
     String address;
     String phone;
     JSONArray openHours;
@@ -29,7 +28,6 @@ public class FetchPlaceDetail extends AsyncTask<Object, String, String> {
             e.printStackTrace();
         }
 
-        System.out.println(googlePlaceDetails);
         return googlePlaceDetails;
     }
 
@@ -39,22 +37,24 @@ public class FetchPlaceDetail extends AsyncTask<Object, String, String> {
             JSONObject jsonObject = new JSONObject(s);
             JSONObject result = jsonObject.getJSONObject("result");
 
-            name = result.getString("name");
+            PopUpWindow.getTvName().setText(result.getString("name"));
+
             address = result.getString("formatted_address");
             phone = result.getString("formatted_phone_number");
             openHours = result.getJSONObject("opening_hours").getJSONArray("weekday_text");
 
-            PopUpWindow.getTvName().setText(name);
-            PopUpWindow.getTvPhone().setText(phone);
-            PopUpWindow.getTvAddress().setText(address);
-
             for (int i = 0; i < openHours.length(); i++) {
                 try {
-                    PopUpWindow.getTvOpenHour().append(String.valueOf(openHours.get(i)) + "\n");
+                    PopUpWindow.getTvInfo().append(openHours.get(i) + "\n");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
+
+            PopUpWindow.getTvInfo().append("\n\n");
+
+            PopUpWindow.getTvInfo().append(address + "\n\n");
+            PopUpWindow.getTvInfo().append(phone + "\n\n");
 
         } catch (JSONException e) {
             e.printStackTrace();

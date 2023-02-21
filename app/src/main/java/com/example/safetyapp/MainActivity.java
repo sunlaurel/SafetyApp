@@ -16,6 +16,12 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     MeowBottomNavigation bottomNavigation;
 
+    private static MapFragment mFragment = new MapFragment();
+
+    public static MapFragment getMapFragment() {
+        return mFragment;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,24 +32,24 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation = findViewById(R.id.nav_view);
 
         bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_baseline_map_24));
-        bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_baseline_speaker_phone_24));
-        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_baseline_call_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_baseline_call_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_baseline_speaker_phone_24));
 
         bottomNavigation.show(1, true);
-        loadFragment(new MapFragment());
+        loadFragment(mFragment);
 
         bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
             public Unit invoke(MeowBottomNavigation.Model model) {
                 switch (model.getId()) {
                     case 1:
-                        loadFragment(new MapFragment());
+                        loadFragment(mFragment);
                         break;
                     case 2:
-                        loadFragment(new SoundsFragment());
+                        loadFragment(new CallFragment());
                         break;
                     case 3:
-                        loadFragment(new CallFragment());
+                        loadFragment(new SoundsFragment());
                         break;
                 }
 

@@ -60,7 +60,7 @@ public class LocationService extends Service {
                                 .snippet(LocationService.latLng.latitude + ", " + LocationService.latLng.longitude);
                         yourLocation = googleMap.addMarker(options);
                         yourLocation.setTag(0);
-                        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LocationService.latLng, 10));
+                        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LocationService.latLng, 13));
                     } else {
                         yourLocation.setPosition(latLng);
                     }

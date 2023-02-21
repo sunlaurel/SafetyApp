@@ -4,14 +4,15 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import com.example.safetyapp.DirectionHelper.PointsParser;
+import com.example.safetyapp.DirectionHelper.TaskLoadedCallback;
 
 public class FetchDirections extends AsyncTask<String, Void, String> {
 
     String directions;
-    Context context;
+    TaskLoadedCallback callback;
 
-    public FetchDirections (Context c) {
-        this.context = c;
+    public FetchDirections (TaskLoadedCallback callback) {
+        this.callback = callback;
     }
 
     @Override
@@ -30,7 +31,7 @@ public class FetchDirections extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String s) {
         try {
             super.onPostExecute(s);
-            PointsParser parserTask = new PointsParser(context);
+            PointsParser parserTask = new PointsParser(callback);
             // Invokes the thread for parsing the JSON data
             parserTask.execute(s);
         } catch (Exception e) {

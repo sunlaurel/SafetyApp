@@ -48,7 +48,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
     SupportMapFragment mp;
     static GoogleMap gMap;
-    GoogleMapOptions options = new GoogleMapOptions();
+    GoogleMapOptions options;
     static Marker yourLocation;
     static Context context;
     private Polyline currentPolyline;
@@ -56,11 +56,16 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
     private FragmentMapBinding binding;
 
+    MapFragment () {
+        options = new GoogleMapOptions();
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentMapBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        View view = inflater.inflate(R.layout.activity_main, container, false);
+        //View view = inflater.inflate(R.layout.activity_main, container, false);
+        //View rootView = inflater.inflate(R.layout.fragment_map, container, false);
 
         btStartDirections = (Button) root.getRootView().findViewById(R.id.btStartGoogleMapDirections);
 
